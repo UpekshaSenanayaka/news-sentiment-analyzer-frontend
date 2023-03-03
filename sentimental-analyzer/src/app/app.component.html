@@ -1,0 +1,111 @@
+<div class="overflow-hidden">
+  <div class="row d-flex flex-row overflow-hidden">
+    <div class="col-md-6">
+      <img
+        src="../assets/image_processing20200711-9845-qrkoti.gif"
+        style="width: 100%; height: 100vh; object-fit: cover"
+        alt=""
+      />
+    </div>
+    <div class="col-md-6 container mt-4">
+      <h2 style="font-weight: bold" class="d-flex justify-content-center mb-3">
+        Let's Analyze Your News Headline
+      </h2>
+      <div class="mt-5 d-flex justify-content-center mb-5">
+        <mat-card style="width: 60%; border-radius: 15px" class="hover-color">
+          <mat-card-content>
+            <form [formGroup]="searchForm">
+              <mat-form-field class="example-full-width" style="width: 100%">
+                <mat-label>Enter News Headline</mat-label>
+                <input matInput formControlName="searchInput" />
+                <button
+                  matSuffix
+                  mat-icon-button
+                  aria-label="search"
+                  (click)="onSearchClick()"
+                >
+                  <mat-icon>search</mat-icon>
+                </button>
+              </mat-form-field>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="row mt-5 mb-3 container" style="text-align: -webkit-center">
+        <div class="col" *ngIf="isSearch && isPositive">
+          <mat-card
+            style="width: 90%; border-radius: 15px"
+            [ngClass]="isPositive ? 'selected-class' : ''"
+            class="w3-animate-zoom"
+          >
+            <mat-card-content>
+              <div class="d-flex justify-content-center">
+                <img src="../assets/icons8-happy-96.png" alt="" />
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5>POSITIVE</h5>
+                <p style="line-break: anywhere">
+                  Your news headline was analyzed as a positive sentimental.
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col" *ngIf="isSearch && isNegative">
+          <mat-card
+            style="width: 90%; border-radius: 15px"
+            [ngClass]="isNegative ? 'selected-class' : ''"
+            class="w3-animate-zoom"
+          >
+            <mat-card-content>
+              <div class="d-flex justify-content-center">
+                <img src="../assets/icons8-sad-96.png" alt="" />
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5>NEGATIVE</h5>
+                <p style="line-break: anywhere">
+                  Your news headline was analyzed as a negative sentimental.
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col" *ngIf="isSearch && isNeutral">
+          <mat-card
+            style="width: 90%; border-radius: 15px"
+            [ngClass]="isNeutral ? 'selected-class' : ''"
+            class="w3-animate-zoom"
+          >
+            <mat-card-content>
+              <div class="d-flex justify-content-center">
+                <img src="../assets/icons8-neutral-96.png" alt="" />
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <h5>NEUTRAL</h5>
+                <p style="line-break: anywhere">
+                  Your news headline was analyzed as a neutral sentimental.
+                </p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <mat-card class="box container">
+          <mat-card-content>
+            <div style="font-weight: bold">Disclaimer:</div>
+            This application incorporates a machine learning model that has been
+            pre-trained on data that existed at the time of creating of the
+            application. Due to this limitation, occasionally for some
+            unorthodox data, the model may produce an incorrect output. This
+            model is not subjective and it may produce neutral/ incorrect
+            results for globally unbiased news headlines which belongs to the
+            areas of sports, politics and current affairs.
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

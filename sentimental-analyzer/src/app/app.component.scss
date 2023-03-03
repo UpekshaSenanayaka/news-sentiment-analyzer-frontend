@@ -1,0 +1,21 @@
+.hover-color {
+    background-color: white;
+}
+
+.hover-color:hover {
+    background-color: #e0ece0;
+}
+
+.selected-class {
+    background-color: #4c747c;
+    color: white;
+}
+
+.box {
+    box-shadow: none;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background-color: #bdece6;
+    border-radius: 10px;
+}
